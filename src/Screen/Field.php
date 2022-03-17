@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Orchid\Screen;
 
 use Closure;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
@@ -31,7 +32,7 @@ use Throwable;
  * @method self tabindex($value = true)
  * @method self autocomplete($value = true)
  */
-class Field implements Fieldable
+class Field implements Fieldable, Htmlable
 {
     use CanSee, Makeable, Conditionable, Macroable {
         __call as macroCall;
@@ -266,7 +267,7 @@ class Field implements Fieldable
      */
     protected function getAllowDataAttributes(): ComponentAttributeBag
     {
-        return $this->getAllowAttributes()->filter(function (/* @noinspection PhpUnusedParameterInspection */ $value, $key) {
+        return $this->getAllowAttributes()->filter(function ($value, $key) {
             return Str::startsWith($key, 'data-');
         });
     }
@@ -297,11 +298,7 @@ class Field implements Fieldable
      */
     public function get(string $key, $value = null)
     {
-        if (! isset($this->attributes[$key])) {
-            return $value;
-        }
-
-        return $this->attributes[$key];
+        return $this->attributes[$key] ?? $value;
     }
 
     /**
@@ -317,7 +314,11 @@ class Field implements Fieldable
      */
     public function getOldValue()
     {
-        return old($this->getOldName());
+        $value = old($this->getOldName());
+
+        return is_numeric($value)
+            ? $value + 0
+            : $value;
     }
 
     /**
@@ -483,7 +484,7 @@ class Field implements Fieldable
     /**
      * @return array
      */
-    private function getErrorsMessage()
+    private function getErrorsMessage(): array
     {
         $errors = session()->get('errors', new MessageBag());
 
@@ -525,5 +526,15 @@ class Field implements Fieldable
         }
 
         return $this;
+    }
+
+    /**
+     * @throws \Throwable
+     *
+     * @return string
+     */
+    public function toHtml()
+    {
+        return $this->render()->toHtml();
     }
 }

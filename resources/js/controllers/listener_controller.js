@@ -1,6 +1,7 @@
 import ApplicationController from "./application_controller";
 
 export default class extends ApplicationController {
+    listenerEvent = () => this.render();
 
     /**
      *
@@ -16,7 +17,7 @@ export default class extends ApplicationController {
         this.targets.forEach(name => {
             document.querySelectorAll(`[name="${name}"]`)
                 .forEach((field) =>
-                    field.addEventListener('change', () => this.render(), {
+                    field.addEventListener('change', this.listenerEvent, {
                         once: true
                     })
                 );
@@ -43,7 +44,15 @@ export default class extends ApplicationController {
                 }
             }));
 
-        this.asyncLoadData(params);
+        this.asyncLoadData(params).then(() => {
+            document.dispatchEvent(
+                new CustomEvent("orchid:listener:after-render", {
+                    detail: {
+                        params: params,
+                    },
+                })
+            );
+        });
     }
 
     /**
@@ -56,7 +65,7 @@ export default class extends ApplicationController {
             return;
         }
 
-        window.axios.post(this.data.get('async-route'), params, {
+        return window.axios.post(this.data.get('async-route'), params, {
             headers: {
                 'ORCHID-ASYNC-REFERER': window.location.href,
             },

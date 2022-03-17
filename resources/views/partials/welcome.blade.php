@@ -1,7 +1,7 @@
 <div class="bg-white rounded-top shadow-sm mb-3">
 
     <div class="row g-0">
-        <div class="col col-lg-7 mt-6 p-4 pe-md-0">
+        <div class="col col-lg-7 mt-6 p-4">
 
             <h2 class="mt-2 text-dark fw-light">
                 Hello, nice to see you!
@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="row bg-light m-0 p-4 border-top rounded-bottom">
+    <div class="row bg-light m-0 p-md-4 p-3 border-top rounded-bottom">
 
         <div class="col-md-6 my-2">
             <h3 class="text-muted fw-light">

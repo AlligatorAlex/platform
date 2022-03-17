@@ -5,6 +5,210 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 12.2.1 - 2022-03-08
+
+### Fixed
+
+- Using an alias to group and sort for `Chartable`
+
+## 12.2.0 - 2022-03-05
+
+### Added
+
+- Support RTL [#1397](https://github.com/orchidsoftware/platform/issues/1397) [#2155](https://github.com/orchidsoftware/platform/pull/2155)
+- Added toolbar color for iOS
+- Smooth Page Refresh for PWA (Including iOS)
+
+### Changed
+
+- Increasing the font size
+- Added\Edit some missing keys in `it` translation [#2165](https://github.com/orchidsoftware/platform/pull/2165)
+
+### Fixed
+
+- Toast notifications on bootstrap 5
+- Update default validation [#2164](https://github.com/orchidsoftware/platform/pull/2164)
+
+## 12.1.0 - 2022-02-14
+
+### Added
+
+- Traditional Chinese language [#2127](https://github.com/orchidsoftware/platform/pull/2127)
+- Ability to override default view [#2126](https://github.com/orchidsoftware/platform/pull/2126)
+- Allow base64 files for Quill [#2130](https://github.com/orchidsoftware/platform/pull/2130)
+
+### Changed
+
+- Remove single quote in the example route [#2118](https://github.com/orchidsoftware/platform/pull/2118)
+
+### Fixed
+
+- Method called twice in html_load controller [#2095](https://github.com/orchidsoftware/platform/issues/2095)
+- hasOwnProperty dot path [#2132](https://github.com/orchidsoftware/platform/pull/2132)
+
+## 12.0.0 - 2022-02-10
+
+### Added
+- Support Laravel 9.x
+
+### Removed
+- Support Laravel 8.x
+- Support Laravel Scout 8.x
+
+## 11.0.1 - 2022-02-06
+
+### Fixed
+
+- CRUD packages
+
+## 11.0.0 - 2022-02-06
+
+### Added 
+
+- Automatic parameter prediction in components [#1961](https://github.com/orchidsoftware/platform/issues/1961)
+- Component value [#1962](https://github.com/orchidsoftware/platform/issues/1962)
+- Autocomplete public properties [#1666](https://github.com/orchidsoftware/platform/discussions/1666)
+- Kazakh language added [#2113](https://github.com/orchidsoftware/platform/pull/2113)
+
+### Changed
+- Publish assets files [#1965](https://github.com/orchidsoftware/platform/issues/1965)
+- Allow different types of values to be returned [#1963](https://github.com/orchidsoftware/platform/issues/1963)
+
+### Removed
+
+- Command `php artisan orchid:link`
+- Command `php artisan orchid:metrics`
+
+### Fixed
+- Screen reader classes are now visually-hidden by @thewebartisan7 in [#2082](https://github.com/orchidsoftware/platform/pull/2082)
+- Destroy popover on disconnect by @thewebartisan7 in [#2080](https://github.com/orchidsoftware/platform/pull/2080)
+- data-target attribute is deprecated by @swara-mohammed in [#2085](https://github.com/orchidsoftware/platform/pull/2085)
+- Support for complex TD::filters, like daterange, number interval by @lintaba in [#1927](https://github.com/orchidsoftware/platform/pull/1927)
+- Update modal_controller by @Augen2203 in [#2110](https://github.com/orchidsoftware/platform/pull/2110)
+
+
+## 10.31.0 - 2022-01-22
+
+### Added
+
+- Allow loading more attachments in upload existing media [#2071](https://github.com/orchidsoftware/platform/pull/2071)
+
+## 10.30.0 - 2022-01-21
+
+### Added
+- Translation into Kurdish [#2062](https://github.com/orchidsoftware/platform/pull/2062), [#2073](https://github.com/orchidsoftware/platform/pull/2073)
+- Custom event orchid:listener:after-render [#2072](https://github.com/orchidsoftware/platform/pull/2072)
+- Compact option to Table layout [#2064](https://github.com/orchidsoftware/platform/pull/2064)
+
+### Fixed
+
+- Added missing keys in Russian translation [#2048](https://github.com/orchidsoftware/platform/pull/2048)
+- Radio buttons id duplicated [#2069](https://github.com/orchidsoftware/platform/pull/2069)
+
+## 10.29.0 - 2022-01-03
+
+### Added
+
+- Hungarian language [#2044](https://github.com/orchidsoftware/platform/pull/2044)
+
+### Changed
+
+- Better filter layout [#2043](https://github.com/orchidsoftware/platform/pull/2043)
+
+## 10.28.0 - 2021-12-30
+
+### Added
+
+- Variable for vertical orientation in Block class [#2024](https://github.com/orchidsoftware/platform/pull/2024)
+
+### Fixed
+
+- Don't render modal search media when disabled [#2039](https://github.com/orchidsoftware/platform/pull/2039)
+
+## 10.27.2 - 2021-12-27
+
+### Fixed
+
+- Dropdown is closed when click [#2001](https://github.com/orchidsoftware/platform/issues/2001)
+
+## 10.27.1 - 2021-12-27
+
+### Fixed
+
+- Typecast to numeric value in old input [#2019](https://github.com/orchidsoftware/platform/issues/2019)
+
+## 10.27.0 - 2021-12-26
+
+### Added
+
+- Romanian language [#2016](https://github.com/orchidsoftware/platform/pull/2016)
+- Accepted-files to cropper and picture [#2023](https://github.com/orchidsoftware/platform/pull/2023)
+
+## 10.26.1 - 2021-12-16
+
+### Fixed
+
+- Corrected searchColumns grouping [#2007](https://github.com/orchidsoftware/platform/pull/2007)
+
+## 10.26.0 - 2021-12-08
+
+### Added
+- New method `chunk` for `Relation` field
+
+## 10.25.3 - 2021-12-07
+
+### Fixed
+- Error disabling notifications in the absence of a trait for the user model [#2000](https://github.com/orchidsoftware/platform/issues/2000)
+
+## 10.25.2 - 2021-12-07
+
+### Fixed
+- Prevent form submission by pressing Enter
+
+## 10.25.1 - 2021-12-03
+
+### Changed
+- Passing rows to array table to collection
+
+### Fixed
+- Menu slug translate [#1996](https://github.com/orchidsoftware/platform/pull/1996)
+- Notice for PHP 8.1 [#1995](https://github.com/orchidsoftware/platform/pull/1995)
+- Quick fix empty collection checking [#1993](https://github.com/orchidsoftware/platform/pull/1993)
+- Start session for test helpers [#1984](https://github.com/orchidsoftware/platform/pull/1984)
+- Usage pass name for route [#1984](https://github.com/orchidsoftware/platform/pull/1984)
+
+## 10.25.0 - 2021-12-01
+
+### Added
+- Testing helpers [#1984](https://github.com/orchidsoftware/platform/pull/1984)
+
+### Fixed
+- Denying access to properties [#1989](https://github.com/orchidsoftware/platform/issues/1989)
+- Active tab setting [#1991](https://github.com/orchidsoftware/platform/pull/1991)
+
+## 10.24.0 - 2021-11-27
+
+### Added
+
+- User Query Scope by permissions [#1954](https://github.com/orchidsoftware/platform/pull/1954)
+
+### Changed
+
+- Allow show/hide columns for unpaginated tables [#1953](https://github.com/orchidsoftware/platform/pull/1953)
+- Update `Turbo` to 7.1.0
+
+### Fixed
+
+- Attachment generator file name SHA-1 [#1967](https://github.com/orchidsoftware/platform/pull/1967)
+- Position Select/Relation for modals [#1966](https://github.com/orchidsoftware/platform/issues/1966)
+- Listener to trigger event multiple times  [#1974](https://github.com/orchidsoftware/platform/pull/1974)
+
+## 10.23.0 - 2021-11-19
+
+### Added
+
+- Close icon for selected filters [#1955](https://github.com/orchidsoftware/platform/pull/1955)
+
 ## 10.22.1 - 2021-10-28
 
 ### Fixed

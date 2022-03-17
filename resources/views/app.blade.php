@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{  app()->getLocale() }}" data-controller="html-load">
+<html lang="{{  app()->getLocale() }}" data-controller="html-load" dir="{{ \Orchid\Support\Locale::currentDir() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,11 +12,10 @@
     </title>
     <meta name="csrf_token" content="{{  csrf_token() }}" id="csrf_token">
     <meta name="auth" content="{{  Auth::check() }}" id="auth">
-
-    @if(file_exists(public_path('/css/orchid/orchid.css')))
-        <link rel="stylesheet" type="text/css" href="{{  mix('/css/orchid/orchid.css') }}">
+    @if(\Orchid\Support\Locale::currentDir(app()->getLocale()) == "rtl")
+        <link rel="stylesheet" type="text/css" href="{{  mix('/css/orchid.rtl.css','vendor/orchid') }}">
     @else
-        <link rel="stylesheet" type="text/css" href="{{  orchid_mix('/css/orchid.css','orchid') }}">
+        <link rel="stylesheet" type="text/css" href="{{  mix('/css/orchid.css','vendor/orchid') }}">
     @endif
 
     @stack('head')
@@ -28,9 +27,9 @@
         <meta name="turbo-cache-control" content="no-cache">
     @endif
 
-    <script src="{{ orchid_mix('/js/manifest.js','orchid') }}" type="text/javascript"></script>
-    <script src="{{ orchid_mix('/js/vendor.js','orchid') }}" type="text/javascript"></script>
-    <script src="{{ orchid_mix('/js/orchid.js','orchid') }}" type="text/javascript"></script>
+    <script src="{{ mix('/js/manifest.js','vendor/orchid') }}" type="text/javascript"></script>
+    <script src="{{ mix('/js/vendor.js','vendor/orchid') }}" type="text/javascript"></script>
+    <script src="{{ mix('/js/orchid.js','vendor/orchid') }}" type="text/javascript"></script>
 
     @foreach(Dashboard::getResource('stylesheets') as $stylesheet)
         <link rel="stylesheet" href="{{  $stylesheet }}">
@@ -43,7 +42,7 @@
     @endforeach
 </head>
 
-<body class="{{ \Orchid\Support\Names::getPageNameClass() }}">
+<body class="{{ \Orchid\Support\Names::getPageNameClass() }}" data-controller="pull-to-refresh">
 
 <div class="container-fluid" data-controller="@yield('controller')" @yield('controller-data')>
 
